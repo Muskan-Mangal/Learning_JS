@@ -1,5 +1,6 @@
 JaveScript is a Synchronus(executes in a specific order -> can only go to the next line once the current line is finished executing), single threaded (can only execute
 one command at a time) language.
+JS is a lossely typed or weekly types language which means irrespstive of datatype you can ssign anything to variable.
 
 
 Execution context: 
@@ -37,3 +38,7 @@ window is the global object created along with global execution context. So a gl
 browsers it's called window. Whenever an execution context is created a "this" variable is also created. At the global level "this" points to the global object
 ( window object in case of browsers). Anything that is not inside a function is the "global space".Whenever we create any variables or functions in the 
 "global space", they get attached to the global object( window object in case of browsers). (not in case of let and const)
+
+Undefined :
+means that a variable has been declared but has not been assigned a value. In JavaScript, properties and functions can only belong to objects. Since undefined is 
+not an object type, calling a function or a property on such a variable causes the TypeError: Cannot read property of undefined .

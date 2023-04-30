@@ -1,6 +1,7 @@
 JaveScript is a Synchronus(executes in a specific order -> can only go to the next line once the current line is finished executing), single threaded (can only execute
 one command at a time) language.
 
+
 Execution context: 
 Everything in JS happens inside execution context. an execution context is an abstract concept of an environment where the Javascript code is 
 evaluated and executed. Whenever any code is run in JavaScript, it runs inside an execution context.The global execution context is created when a JavaScript script 

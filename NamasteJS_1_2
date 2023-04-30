@@ -10,9 +10,18 @@ function's local scope.
 
 It has 2 components:
 
-1. Memory Component (variable environment, memory creation phase): where all the variables and functions are stored as key-value pairs. It goes throught the entire code, allocates and reserves a memory for them. variables are intilialised with value undefined (a: undefined)and for functions it stores the whole code in memory space.
-2. Code Component (Thread of execution, code execution phase): This is the place where code is executed one line at a time. in the second phase of creation of execution context which is code execution phase, the value of variables will actually get initialised (a=2). whenever a new function is INVOKED (actually called), a new functional execution context is created , in it's memory comp., it stores parameters and other variable and fucntions inside that function. Then hwen it encounters return keyword, it return the control back to the execution context where the functions was invoked and that functional execution context is deleted. 
+1. Memory Component (variable environment, memory creation phase): where all the variables and functions are stored as key-value pairs. It goes throught the entire code
+, allocates and reserves a memory for them. variables are intilialised with value undefined (a: undefined)and for functions it stores the whole code in memory space.
+2. Code Component (Thread of execution, code execution phase): This is the place where code is executed one line at a time. in the second phase of creation of execution 
+context which is code execution phase, the value of variables will actually get initialised (a=2). whenever a new function is INVOKED (actually called), a new functional 
+execution context is created , in it's memory comp., it stores parameters and other variable and fucntions inside that function. Then hwen it encounters return keyword,
+it return the control back to the execution context where the functions was invoked and that functional execution context is deleted. 
 
 CALL STACK : 
-It is like a real stack in data structures where data can be pushed and popped and follows the LIFO principle. We use call stack for memorizing which function is running right now. Basically, a Javascript engine uses a call stack to manage execution context. When JS fucntion is run, the javascript engine builds a global execution context and pushes it to the top of the call stack. and when a function is called the javascript engine constructs a context for the function execution, places it at the top of the call stack, and begins the function’s execution. if the function calls another function javascript engine creates a new function execution context and pushes it to the top of the call stack. when it encoutners the return keyword that Exe. context is popped out. In the end, the Global execution context is also deleted and the stack becomes empty.
+It is like a real stack in data structures where data can be pushed and popped and follows the LIFO principle. We use call stack for memorizing which function is
+running right now. Basically, a Javascript engine uses a call stack to manage execution context. When JS fucntion is run, the javascript engine builds a global 
+execution context and pushes it to the top of the call stack. and when a function is called the javascript engine constructs a context for the function execution, 
+places it at the top of the call stack, and begins the function’s execution. if the function calls another function javascript engine creates a new function execution 
+context and pushes it to the top of the call stack. when it encoutners the return keyword that Exe. context is popped out. In the end, the Global execution context is
+also deleted and the stack becomes empty.
 In short , call stack maintains the order of execution of execution Contexts.

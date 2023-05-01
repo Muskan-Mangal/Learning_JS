@@ -85,4 +85,7 @@ else it will throw syntax error and code won't even run.
 
 Initialising variables at the top is good idea, helps shrinks TDZ to zero.
 
+Temporal Dead Zone : A temporal dead zone (TDZ) is the block where a variable is inaccessible until the moment the computer initializes it with a value. 
+kind of the ohase where the variable is hoisted and initialised.
+
 

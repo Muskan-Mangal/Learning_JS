@@ -46,6 +46,12 @@ not an object type, calling a function or a property on such a variable causes t
 SCOPE:
 scope means where you can access a specific variable or function. there are two aspect to it. First what's the scope of variable B which means where I can access b,
 and the other is b inside the scope of function C which means can I access variable b inside function c.
+It determines the accessibility of variables, objects, and functions from different parts of the code.
+
+https://javascript.plainenglish.io/scope-chain-and-lexical-environment-in-javascript-eb1f6e60997e
+
+Lexical Scope
+When we have a nested group of functions, the inner function has access to variables and other resources of the parent function. This means child functions are lexically bound to the execution context of their parents.
 
 scope is directly dependent on the lexical environment.
 
@@ -56,6 +62,12 @@ is lexically inside the global scope. For global execution lexical parents is NU
 So when searching for a variable in function B,it will first search in it's local memory (the memory comp of that fucntional xecution context) and then there it
 will get reference to lexical environment of parent of fucntion B and wll search in their memory comp.
 
+The lexical environment contains two components:
+
+Environment record: It is the actual place where the variable and function declarations are stored.
+Reference to the outer environment: It means it has access to its outer (parent) lexical environment.
+
 SCOPE CHAIN 
 SO this way or this mechanism of searching the scope is called scope chain. It's bacially the chain of all the lexical environments and parent references.
-
+The scope chain helps to resolve variables. When a variable needs to resolve, JavaScript starts from the innermost level of the code and keeps jumping back to the 
+parent scope until it finds the variable it’s looking for.

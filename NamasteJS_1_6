@@ -88,4 +88,20 @@ Initialising variables at the top is good idea, helps shrinks TDZ to zero.
 Temporal Dead Zone : A temporal dead zone (TDZ) is the block where a variable is inaccessible until the moment the computer initializes it with a value. 
 kind of the ohase where the variable is hoisted and initialised.
 
+Block : Code inside curly bracket is called block. It is used to combine multiple statement into one statement so that we can use it at those places where javascript
+expects to have single statement.
+
+Block Scope: The block scope of a variable means that the variable is accessible within the block that is between the curly brace. let and const are block scoped
+if we have a block with 3 variables, {var a=10; let b=20; const c=30;), then you won't be able to access let and const outside this block but var will be accebile 
+because var is functional scoped not block scoped, in this example var is stored in global space only but let and const are stores in a different memory section called
+block() for that particular block.
+
+Shadowing :
+Basiclag occurs when a variable declared in a certain scope (e.g. a local variable) has the same name as a variable in an outer scope (e.g. a global variable).
+When this happens, the outer variable is said to be shadowed by the inner variable.
+
+Illegal shadowing : Illegal shadowing is if while shadowing a variable, it crosses the boundary of the scope. If you create a variable in a global scope with the 
+let keyword and another variable with the var keyword in a block scope but the exact same name, it will throw an error. You can shadow let using let, and even var 
+using let.
+
 

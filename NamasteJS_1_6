@@ -41,4 +41,21 @@ browsers it's called window. Whenever an execution context is created a "this" v
 
 Undefined :
 means that a variable has been declared but has not been assigned a value. In JavaScript, properties and functions can only belong to objects. Since undefined is 
-not an object type, calling a function or a property on such a variable causes the TypeError: Cannot read property of undefined .
+not an object type, calling a function or a property on such a variable causes the TypeError: Cannot read property of undefined.
+
+SCOPE:
+scope means where you can access a specific variable or function. there are two aspect to it. First what's the scope of variable B which means where I can access b,
+and the other is b inside the scope of function C which means can I access variable b inside function c.
+
+scope is directly dependent on the lexical environment.
+
+Lexical environment:
+whenver an execution context is created, a lexical environment is also created (in the memory comp. u get a reference to the lexical environment of it's parent). 
+It's the local memory along withreference to the lexical environment of it's parent. Lexical as a term means in heirarchy like c is lexically inside a function a and fucntion a 
+is lexically inside the global scope. For global execution lexical parents is NULL. 
+So when searching for a variable in function B,it will first search in it's local memory (the memory comp of that fucntional xecution context) and then there it
+will get reference to lexical environment of parent of fucntion B and wll search in their memory comp.
+
+SCOPE CHAIN 
+SO this way or this mechanism of searching the scope is called scope chain. It's bacially the chain of all the lexical environments and parent references.
+

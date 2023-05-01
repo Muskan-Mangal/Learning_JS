@@ -51,14 +51,15 @@ It determines the accessibility of variables, objects, and functions from differ
 https://javascript.plainenglish.io/scope-chain-and-lexical-environment-in-javascript-eb1f6e60997e
 
 Lexical Scope
-When we have a nested group of functions, the inner function has access to variables and other resources of the parent function. This means child functions are lexically bound to the execution context of their parents.
+When we have a nested group of functions, the inner function has access to variables and other resources of the parent function. This means child functions are 
+lexically bound to the execution context of their parents.
 
 scope is directly dependent on the lexical environment.
 
 Lexical environment:
 whenver an execution context is created, a lexical environment is also created (in the memory comp. u get a reference to the lexical environment of it's parent). 
-It's the local memory along withreference to the lexical environment of it's parent. Lexical as a term means in heirarchy like c is lexically inside a function a and fucntion a 
-is lexically inside the global scope. For global execution lexical parents is NULL. 
+It's the local memory along withreference to the lexical environment of it's parent. Lexical as a term means in heirarchy like c is lexically inside a function a 
+and fucntion a is lexically inside the global scope. For global execution lexical parents is NULL. 
 So when searching for a variable in function B,it will first search in it's local memory (the memory comp of that fucntional xecution context) and then there it
 will get reference to lexical environment of parent of fucntion B and wll search in their memory comp.
 
@@ -71,3 +72,12 @@ SCOPE CHAIN
 SO this way or this mechanism of searching the scope is called scope chain. It's bacially the chain of all the lexical environments and parent references.
 The scope chain helps to resolve variables. When a variable needs to resolve, JavaScript starts from the innermost level of the code and keeps jumping back to the 
 parent scope until it finds the variable it’s looking for.
+
+LET and CONST :
+
+let and const are other ways of declaring a variable. They are hoisted which mean a memory space is created for them  Where they differ from other is declarations in 
+the hoisting process is in their initialization. This makes them inaccessible (as such variables are in a temporal dead zone). They are not attached to the global 
+object actually in a different memory space not like the global one. 
+Const is more strict then var and let, in case of let you can initialise it later after declaring , it won't be accesible since till the time it's not initialised, 
+it would be in temporal dead zone and will give reference error if tried to access, but in case of const, it needs to be initialised at the time of declaration only,
+else it will throw syntax error and code won't even run.

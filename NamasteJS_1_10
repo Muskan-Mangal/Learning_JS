@@ -126,3 +126,20 @@ inner("John"); // Output: "Hello, John"
 idelly when outefunction has returned innerfunction, the outervariable shoulnd't exisit and be accesible outside right, but it innerfunction is clousre here , when 
 retured it remebers where ti came from, it remembers it's lexical scope and return that too along with function. Closure is used in currying, function like once etc.
 
+Advantages of Closure:
+1. in data hiding and encapsulation
+2. function curry
+3. high order function like memoize and once
+4. set timeout functions
+
+Disadvantages of clousre:
+1. there could be overconsuption of memory if we create a lot of closures because those variables are not garbage collected till the program expires.
+2. if not handled properly it can also lead to memory leaks, it can also freeze the browser
+
+Garbage collector:
+it is like a program in browser or in js engine which kind of frees up the untilised memory. in c, c++ it's up to user how they want to allocate and deallocate but 
+in high level language like JS, it's done by the js engine. SO if there is any unused variableor when it figures that these are not needed now, it fress that memory.
+
+but some of the modern js engine or browser, they have smart garbage collection mechanism. They can figure out which variable is refenced in closure and which is 
+not needed.
+

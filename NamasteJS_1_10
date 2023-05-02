@@ -104,4 +104,25 @@ Illegal shadowing : Illegal shadowing is if while shadowing a variable, it cross
 let keyword and another variable with the var keyword in a block scope but the exact same name, it will throw an error. You can shadow let using let, and even var 
 using let.
 
+CLOSURE:
+The combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you 
+access to an outer function's scope from an inner function 
+In JavaScript you can assign a fucntion to a variable and also you can pass function as a parameter even you can return the function in JavaScript!!
+Whenever function is returned, even if its parents vanished in execution context but still it remembers the reference it was pointing to. Its not just that function 
+alone it returns but the entire closure. To use a closure in JavaScript, you can define a function inside another function and use the inner function to access the 
+outer function's variables and parameters. You can also return the inner function from the outer function to make the closure available for use elsewhere in your 
+code. 
+
+function outerFunction() {
+ var outerVariable = "Hello, ";
+ function innerFunction(name) {
+  console.log(outerVariable + name);
+  }
+ return innerFunction;
+ }
+var inner = outerFunction();
+inner("John"); // Output: "Hello, John"
+
+idelly when outefunction has returned innerfunction, the outervariable shoulnd't exisit and be accesible outside right, but it innerfunction is clousre here , when 
+retured it remebers where ti came from, it remembers it's lexical scope and return that too along with function. Closure is used in currying, function like once etc.
 

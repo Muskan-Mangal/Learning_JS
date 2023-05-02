@@ -143,3 +143,15 @@ in high level language like JS, it's done by the js engine. SO if there is any u
 but some of the modern js engine or browser, they have smart garbage collection mechanism. They can figure out which variable is refenced in closure and which is 
 not needed.
 
+
+Function statement/funtion declaration : A normal function that we create using Naming convention. & By this we can do the Hoisting.
+      For Ex  -  function xyz(){ console.log("Function Statement"); }
+
+Function Expression : When we assign a function into a variable like a value ,that is Function Expression & since it's treated as value and initialised as undefined
+, we can't invoke it before initilaisation hence We can not do Hoisting.
+ var a = function() { console.log("Function Expression"); }
+
+Anonymous Function : Function without name. it will throw error if used like statement but It can be used in a place where function are treated as value line in exp.
+      For Ex - function(){ }
+
+First Class Function: The Ability to use function as value, can be assigned to a variable, can be passed as an argument, can be returned from function.

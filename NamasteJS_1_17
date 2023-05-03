@@ -155,3 +155,24 @@ Anonymous Function : Function without name. it will throw error if used like sta
       For Ex - function(){ }
 
 First Class Function: The Ability to use function as value, can be assigned to a variable, can be passed as an argument, can be returned from function.
+
+CALL BACK FUNCTION: 
+you can  take a function and pass it as argument in another function. so that function that's passed as an argument to another function is called Call BAck fucntions
+bascially a function that will be called back later by another function.
+Due to callbackes we can make JS behave like asynchronus one. eg. setTimeout(function (){console.log("called");}, 5000) , so JS won't wait for 5 seconds  instead it 
+will register the timer and will move to next line, and when the time ticks 5 seconds it will print "called". SO it didn't behave synchronus (line exe. one by one in
+order, when one finished executing).
+
+Javascript has only one call stack and that is also called the main thread and if any execution blocks the call stack that is called "lbocking the main thread", like 
+if a fucntion has very heavy operaiton, is taking 50-40 sec to finish so since JS has only one call stack everything else will be blocked till that time , so we shall
+always try to use asyn functions likr settime out .
+By default, the browser uses a single thread to run all the JavaScript in your page, as well as to perform layout, reflows, and garbage collection. This means that 
+long-running JavaScript functions can block the thread, leading to an unresponsive page and a bad user experience.
+
+EVENt Listeners: An event listener is a JavaScript's procedure that waits for the occurrence of an event. The addEventListener() method is an inbuilt function of 
+JavaScript. We can add multiple event handlers to a particular element without overwriting the existing event handlers.The addEventListener() method attaches an 
+event handler to an element like what to do onClick, on hover liek that.
+but adding a lot of event listner can degarde the peromance, since so many closures sitting into memory, with all their scopes , all their callbacks. 
+so we should remove event listner once we do that it will be garbage collectd.
+
+

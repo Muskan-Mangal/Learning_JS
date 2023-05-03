@@ -173,6 +173,5 @@ EVENt Listeners: An event listener is a JavaScript's procedure that waits for th
 JavaScript. We can add multiple event handlers to a particular element without overwriting the existing event handlers.The addEventListener() method attaches an 
 event handler to an element like what to do onClick, on hover liek that.
 but adding a lot of event listner can degarde the peromance, since so many closures sitting into memory, with all their scopes , all their callbacks. 
-so we should remove event listner once we do that it will be garbage collectd.
-
+so we should remove event listner once we do that it will be garbage collected.
 

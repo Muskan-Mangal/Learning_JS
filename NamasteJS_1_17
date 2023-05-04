@@ -192,3 +192,27 @@ continuously observes call stack and when it is empty it transfers task to call 
 
 Promises and mutation observer are stored in API environment and then transferred to microtask queue. Microtask queue is same but is high priority, event loop 
 checks this queue first and then the call back queue.
+
+JAVASCRIPT ENGINE: 
+JS runtime environment contains all elements required to run JS. It contains JS engine, set of API's, callback queue, microtask queue, event loop. JS engine is a
+piece of code. Chromes V8 engine is written in c++. Process in JS engine includes Parsing ---> Compilation -----> Execution.
+Parsing breaks code into tokens and converts it into AST(Abstract Syntax Tree). JS was supposed to be a interpreted language when developed (now spidermonkey) but
+Modern JS engine follows JIT(Just in time) compilation, it interprets while it optimises code as much as it can. so it's a combo of both interpretor and compiler.
+Execution and Compilation are done together. Interpretor(directly executes, line by line hence fast ) , compiler (first compile to optimise it-> executes so efficient)
+Execution has Garbage collector(it uses mark and sweep algo) and other optimisation such as inlining, copy elusion, inline caching etc.
+
+Heigher Order functions:
+Higher order functions are functions that take one or more functions as arguments, or return a function as their result. 
+famous eg. map, filter, reduce 
+
+1. map is used when we want transformation of whole array. like double each value, give binary of each value in arr. 
+   const output= arr.map(double)
+2. filter is used when we want to filter the arry accoding to a criteria, like odd values, divisble by 3, greater than 5.
+   const output = arr.filter(isEven)
+3. reduce is used when we want to reduce the array to single value eg (max, min, avg, sum, difference etc).
+4. reduce passes two arguments one function(which includes accumulator and current) and another initial value of accumulator. eg, to find sum of array
+   const output = arr.reduce(function(acc,curr){
+                  acc=acc+curr;
+                  return acc;}, 0 )
+Power of these is these functions can be chained. We can use filter and then on the filtered value can use map like thta
+const output = users.filter( (x) => x.age <30).map((x) => x.firstname)

@@ -175,3 +175,20 @@ event handler to an element like what to do onClick, on hover liek that.
 but adding a lot of event listner can degarde the peromance, since so many closures sitting into memory, with all their scopes , all their callbacks. 
 so we should remove event listner once we do that it will be garbage collected.
 
+Web API Environments: 
+the console, setTimeout(), DOM APIs (document.getelementbyID types), fetch() are not of javascript but Browser has these superpowers that are lent to JS engine to 
+execute some tasks, these superpowers include web API's such as console, location, DOM API, setTimeout, fetch, local storage.
+
+The Callback queue:
+It is a data structure that operates on the FIFO (first-in-first-out) principle. Callback functions that need to be asynchronously executed, are pushed onto the 
+callback queue. These are later pushed to the Call stack to be executed (when the event loop finds an empty call stack). like for setTimeout, once that's called,
+a callback is registered in the webAPI environment and timer starts, once that timer is finished it's pushed to call back queue. For event listners, call back is
+registered with the event ans same process, in the case of event listeners(for example click handlers), the original callbacks stay in the web API environment forever
+, that's why it's advised to explicitly remove the listeners when not in use so that the garbage collector does its job.
+
+EVENT LOOP: 
+Event loop in JavaScript is a mechanism through which the 'calls waiting for execution' in the callback queue/job queue can be put on the call stack. Event loop 
+continuously observes call stack and when it is empty it transfers task to call stack. 
+
+Promises and mutation observer are stored in API environment and then transferred to microtask queue. Microtask queue is same but is high priority, event loop 
+checks this queue first and then the call back queue.

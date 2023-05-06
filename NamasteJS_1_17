@@ -124,7 +124,7 @@ var inner = outerFunction();
 inner("John"); // Output: "Hello, John"
 
 idelly when outefunction has returned innerfunction, the outervariable shoulnd't exisit and be accesible outside right, but it innerfunction is clousre here , when 
-retured it remebers where ti came from, it remembers it's lexical scope and return that too along with function. Closure is used in currying, function like once etc.
+retured it remebers where it came from, it remembers it's lexical scope and return that too along with function. Closure is used in currying, function like once etc.
 
 Advantages of Closure:
 1. in data hiding and encapsulation
@@ -161,7 +161,13 @@ you can  take a function and pass it as argument in another function. so that fu
 bascially a function that will be called back later by another function.
 Due to callbackes we can make JS behave like asynchronus one. eg. setTimeout(function (){console.log("called");}, 5000) , so JS won't wait for 5 seconds  instead it 
 will register the timer and will move to next line, and when the time ticks 5 seconds it will print "called". SO it didn't behave synchronus (line exe. one by one in
-order, when one finished executing).
+order, when one finished executing). With help of call back functions, we can make JS behave or act like asynchronus lang.
+
+Disadvantages of using CallBack:
+1. CALLBACk Hell : Callback hell is a phenomenon that happens when multiple callbacks are nested on top of each other. The two common ways of escaping the callback 
+are by using promises and async/await. Nesting of callbacks can lead to an unreadable and not easy to manageable codebase. code starts to expand horizontally instead
+of vertical. It's also called pyramid of Doom bcoz of it's shape.
+2. Inversion of control :
 
 Javascript has only one call stack and that is also called the main thread and if any execution blocks the call stack that is called "lbocking the main thread", like 
 if a fucntion has very heavy operaiton, is taking 50-40 sec to finish so since JS has only one call stack everything else will be blocked till that time , so we shall

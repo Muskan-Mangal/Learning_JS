@@ -223,3 +223,15 @@ famous eg. map, filter, reduce
                   return acc;}, 0 )
 Power of these is these functions can be chained. We can use filter and then on the filtered value can use map like thta
 const output = users.filter( (x) => x.age <30).map((x) => x.firstname)
+
+promise : 
+a promise is an object representing the eventual completion or failure of an async task. They are just like placeholders to store a future value that will be 
+returned after some time . It helps in asynchronous operations in javascript with  assured response (promise states: pending, fulfilled, rejected and results) ,
+safety (immutable), reliability (callback is always called and called only once) and more control ( attaching callback instead of passing callback).
+it resolves the inversion of control since we are not dependent on PAI that once it will complete it will call the callback, we are using object promise which will
+defineitly b calld once it has been filled with data that too only once. Callback hell can be resolved by chaining .then (function x{ return cb}).then ()..
+
+
+
+
+

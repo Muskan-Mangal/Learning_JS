@@ -167,7 +167,8 @@ Disadvantages of using CallBack:
 1. CALLBACk Hell : Callback hell is a phenomenon that happens when multiple callbacks are nested on top of each other. The two common ways of escaping the callback 
 are by using promises and async/await. Nesting of callbacks can lead to an unreadable and not easy to manageable codebase. code starts to expand horizontally instead
 of vertical. It's also called pyramid of Doom bcoz of it's shape.
-2. Inversion of control :
+2. Inversion of control : In the context of callbacks, inversion of control is the notion of having code under your control in one part of the program, then handing 
+control over to a callback in another part of the program.
 
 Javascript has only one call stack and that is also called the main thread and if any execution blocks the call stack that is called "lbocking the main thread", like 
 if a fucntion has very heavy operaiton, is taking 50-40 sec to finish so since JS has only one call stack everything else will be blocked till that time , so we shall

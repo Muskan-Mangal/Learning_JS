@@ -235,5 +235,34 @@ defineitly b calld once it has been filled with data that too only once. Callbac
 
 
 
+`this` KeyWord in JS:
+1. when this is inside a 'method inside of an Object' : `this` will point to the current whole object.
+2. when this is `inside of a function` that is directly decalred in the global execution context : then `this` will be point to the `global` in Node or `window` object.
+3. when this is `inside  a constructor function` : ( when you call a function with `new` operator ) , this will refer to a new empty object ( `{}`).
+
+case 1 : 
+     const Person = {
+      name: 'abhay',
+      getName(){
+          console.log(this);
+      }
+    }
+
+case 2: 
+ function getHero() {
+     console.log(this);
+ }
+
+case 3: 
+  function getHero(title) {
+     this.title = title;
+     console.log(this);
+  }
+  
+  let hero = new getHero('BatMan');  // in this case rather then pointing to global object , `this` will point to `{}` object (empty object) and fill this empty object with 
+                                          key: value pair of ( title: 'Batman') in this case
+  
+
+
 
 

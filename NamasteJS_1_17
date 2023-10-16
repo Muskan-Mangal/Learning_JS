@@ -246,22 +246,24 @@ case 1 :
       getName(){
           console.log(this);
       }
-    }
+    } 
+Person.getName(); // op: { name: 'abhay', getName: [Function: getName] }
 
 case 2: 
  function getHero() {
      console.log(this);
  }
+getHero(); //op: global
 
 case 3: 
   function getHero(title) {
      this.title = title;
      console.log(this);
   }
-  
-  let hero = new getHero('BatMan');  // in this case rather then pointing to global object , `this` will point to `{}` object (empty object) and fill this empty object with 
+  getHero()// op: global object
+  let hero2 = new getHero('BatMan');  // in this case rather then pointing to global object , `this` will point to `{}` object (empty object) and fill this empty object with 
                                           key: value pair of ( title: 'Batman') in this case
-  
+                                      //op : getHero { title: 'Batman' }
 
 
 

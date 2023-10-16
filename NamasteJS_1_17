@@ -265,6 +265,21 @@ case 3:
                                           key: value pair of ( title: 'Batman') in this case
                                       //op : getHero { title: 'Batman' }
 
+case 4: in case of  `arrow functions` 
 
+const obj = {
+  name: "John",
+  regularFunction: function() {
+    console.log("Regular Function: Hello, " + this.name);
+  },
+  arrowFunction: () => {
+    console.log("Arrow Function: Hello, " + this.name);
+  }
+};
+
+obj.regularFunction(); // Regular Function: Hello, John
+obj.arrowFunction();   // Arrow Function: Hello, undefined In the above example, the regularFunction uses this to access the name property of the obj 
+                          object because it has its own this binding. However, the arrowFunction uses the this from the surrounding context 
+                          (which is the global context), and since there's no name property defined in the global context, it logs undefined.
 
 

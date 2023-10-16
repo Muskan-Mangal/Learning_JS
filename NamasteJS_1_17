@@ -1,6 +1,8 @@
+Everything in javaScript happens inside the 'Execution Context' .
+
 JaveScript is a Synchronus(executes in a specific order -> can only go to the next line once the current line is finished executing), single threaded (can only execute
 one command at a time) language.
-JS is a lossely typed or weekly types language which means irrespstive of datatype you can ssign anything to variable.
+JS is a lossely typed or weekly types language which means irrespstive of datatype you can assign anything to variable.
 
 
 Execution context: 
@@ -15,12 +17,12 @@ It has 2 components:
 , allocates and reserves a memory for them. variables are intilialised with value undefined (a: undefined)and for functions it stores the whole code in memory space.
 2. Code Component (Thread of execution, code execution phase): This is the place where code is executed one line at a time. in the second phase of creation of execution 
 context which is code execution phase, the value of variables will actually get initialised (a=2). whenever a new function is INVOKED (actually called), a new functional 
-execution context is created , in it's memory comp., it stores parameters and other variable and fucntions inside that function. Then hwen it encounters return keyword,
+execution context is created , in it's memory comp., it stores parameters and other variable and fucntions inside that function. Then when it encounters return keyword,
 it return the control back to the execution context where the functions was invoked and that functional execution context is deleted. 
 
 CALL STACK : 
 It is like a real stack in data structures where data can be pushed and popped and follows the LIFO principle. We use call stack for memorizing which function is
-running right now. Basically, a Javascript engine uses a call stack to manage execution context. When JS fucntion is run, the javascript engine builds a global 
+running right now. Basically, a Javascript engine uses a call stack to manage execution context. When JS function is run, the javascript engine builds a global 
 execution context and pushes it to the top of the call stack. and when a function is called the javascript engine constructs a context for the function execution, 
 places it at the top of the call stack, and begins the function’s execution. if the function calls another function javascript engine creates a new function execution 
 context and pushes it to the top of the call stack. when it encoutners the return keyword that Exe. context is popped out. In the end, the Global execution context is
@@ -57,12 +59,12 @@ lexically bound to the execution context of their parents.
 
 scope is directly dependent on the lexical environment.
 
-Lexical environment:
+Lexical environment: ( local memory 'plus'/'along with' reference to the lexical env of its parent) 
 whenver an execution context is created, a lexical environment is also created (in the memory comp. u get a reference to the lexical environment of it's parent). 
-It's the local memory along withreference to the lexical environment of it's parent. Lexical as a term means in heirarchy like c is lexically inside a function a 
-and fucntion a is lexically inside the global scope. For global execution lexical parents is NULL. 
-So when searching for a variable in function B,it will first search in it's local memory (the memory comp of that fucntional xecution context) and then there it
-will get reference to lexical environment of parent of fucntion B and wll search in their memory comp.
+It's the local memory along withreference to the lexical environment of it's parent. Lexical as a term means in heirarchy like 'c' is lexically inside a function 'a' 
+and fucntion 'a' is lexically inside the global scope. For global execution lexical parents is NULL. 
+So when searching for a variable in function B,it will first search in it's local memory (the memory comp of that fucntional execution context) and then there it
+will get reference to lexical environment of parent of fucntion B and will search in their memory comp.
 
 The lexical environment contains two components:
 
@@ -86,7 +88,7 @@ else it will throw syntax error and code won't even run.
 Initialising variables at the top is good idea, helps shrinks TDZ to zero.
 
 Temporal Dead Zone : A temporal dead zone (TDZ) is the block where a variable is inaccessible until the moment the computer initializes it with a value. 
-kind of the ohase where the variable is hoisted and initialised.
+kind of the phase between where the variable is hoisted and initialised.
 
 Block : Code inside curly bracket is called block. It is used to combine multiple statement into one statement so that we can use it at those places where javascript
 expects to have single statement.
@@ -231,6 +233,35 @@ safety (immutable), reliability (callback is always called and called only once)
 it resolves the inversion of control since we are not dependent on PAI that once it will complete it will call the callback, we are using object promise which will
 defineitly b calld once it has been filled with data that too only once. Callback hell can be resolved by chaining .then (function x{ return cb}).then ()..
 
+
+
+`this` KeyWord in JS:
+1. when this is inside a 'method inside of an Object' : `this` will point to the current whole object.
+2. when this is `inside of a function` that is directly decalred in the global execution context : then `this` will be point to the `global` in Node or `window` object.
+3. when this is `inside  a constructor function` : ( when you call a function with `new` operator ) , this will refer to a new empty object ( `{}`).
+
+case 1 : 
+     const Person = {
+      name: 'abhay',
+      getName(){
+          console.log(this);
+      }
+    }
+
+case 2: 
+ function getHero() {
+     console.log(this);
+ }
+
+case 3: 
+  function getHero(title) {
+     this.title = title;
+     console.log(this);
+  }
+  
+  let hero = new getHero('BatMan');  // in this case rather then pointing to global object , `this` will point to `{}` object (empty object) and fill this empty object with 
+                                          key: value pair of ( title: 'Batman') in this case
+  
 
 
 

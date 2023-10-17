@@ -283,3 +283,37 @@ obj.arrowFunction();   // Arrow Function: Hello, undefined In the above example,
                           (which is the global context), and since there's no name property defined in the global context, it logs undefined.
 
 
+
+
+Call() , appy() , bind() 
+
+let name = {
+  firstName: 'Abhay',
+  lastName : 'Modi',
+  printName : function (){
+   console.log(this.firstName + " "+this.lastName);
+ }
+}
+const printFullName  =  function (hometown,town){
+   console.log(this.firstName + " " + this.lastName+ "from : " + hometown + " in:" + town);
+ }
+
+name.printName();
+let name2 = {
+  firstName: 'Maau',
+  lastName : 'Meri',
+}
+
+//function Borrowing 
+name.printName.call(name2);
+
+//simple Call()
+printFullName.call(name,"Delhi","India"); //first arg will refer to `this` keyword and rest as normal arg to the function
+
+//apply()
+printFullName.call(name,["Delhi","India"]); //first arg will refer to `this` keyword and rest as normal arg to the function
+
+//bind()
+let printMyName = printFullName.bind(name,"Delhi","India"); //return a copy of function
+console.log(printMyName) //print the whole function body
+printMyName() //normal function invoke will orint : <Abhay modi from Delhi in India>

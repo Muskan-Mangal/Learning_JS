@@ -344,3 +344,9 @@ params = args.slice(1);
 
 let printMyName02 = printName.myBind(name);
 printMyName02;
+
+///////Promises 
+
+const API = "https://api/github.com/users/the-imperor
+const promise = fetch(API) // if console this promise, it is a promise object
+promise.then((data)=>{console.log(data)});

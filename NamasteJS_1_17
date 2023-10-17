@@ -317,3 +317,30 @@ printFullName.call(name,["Delhi","India"]); //first arg will refer to `this` key
 let printMyName = printFullName.bind(name,"Delhi","India"); //return a copy of function
 console.log(printMyName) //print the whole function body
 printMyName() //normal function invoke will orint : <Abhay modi from Delhi in India>
+
+
+
+//polyfill for bind
+let name = {
+  firstName: 'Abhay',
+  lastName : 'Modi',
+}
+const printName  =  function (){
+   console.log(this.firstName + " " + this.lastName);
+ }
+let printMyName = printName.bind(name);
+printMyName();
+
+//creating a polyfill for bind say (myBind())
+
+Function.prototype.myBind = function (...args) {
+//args will be an array now
+let obj =this;
+params = args.slice(1);
+   return function(...args2){
+    this.apply(args[0],[...params,...args2]);
+  }
+} 
+
+let printMyName02 = printName.myBind(name);
+printMyName02;

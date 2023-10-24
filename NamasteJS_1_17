@@ -356,3 +356,10 @@ Promises have 3 things inside it
 1. [[Prototype]] : Promise.
 2. [[PromiseState]] : possible values are "pending" , "fulfilled", "rejected" .
 3. [[PromiseResult]] : store the data (intially intialised with `undefined`).
+
+
+async() function :
+always return a promise , either you manually sent it out or else JS by itself wrap it in the promise object.
+
+async and await is used to handle promises.
+await can only be used inside ur async function

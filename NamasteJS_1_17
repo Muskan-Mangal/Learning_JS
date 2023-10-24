@@ -350,3 +350,9 @@ printMyName02;
 const API = "https://api/github.com/users/the-imperor
 const promise = fetch(API) // if console this promise, it is a promise object
 promise.then((data)=>{console.log(data)});
+
+
+Promises have 3 things inside it 
+1. [[Prototype]] : Promise.
+2. [[PromiseState]] : possible values are "pending" , "fulfilled", "rejected" .
+3. [[PromiseResult]] : store the data (intially intialised with `undefined`).

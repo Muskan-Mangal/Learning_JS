@@ -235,5 +235,131 @@ defineitly b calld once it has been filled with data that too only once. Callbac
 
 
 
+`this` KeyWord in JS:
+1. when this is inside a 'method inside of an Object' : `this` will point to the current whole object.
+2. when this is `inside of a function` that is directly decalred in the global execution context : then `this` will be point to the `global` in Node or `window` object.
+3. when this is `inside  a constructor function` : ( when you call a function with `new` operator ) , this will refer to a new empty object ( `{}`).
+
+case 1 : 
+     const Person = {
+      name: 'abhay',
+      getName(){
+          console.log(this);
+      }
+    } 
+Person.getName(); // op: { name: 'abhay', getName: [Function: getName] }
+
+case 2: 
+ function getHero() {
+     console.log(this);
+ }
+getHero(); //op: global
+
+case 3: 
+  function getHero(title) {
+     this.title = title;
+     console.log(this);
+  }
+  getHero()// op: global object
+  let hero2 = new getHero('BatMan');  // in this case rather then pointing to global object , `this` will point to `{}` object (empty object) and fill this empty object with 
+                                          key: value pair of ( title: 'Batman') in this case
+                                      //op : getHero { title: 'Batman' }
+
+case 4: in case of  `arrow functions` 
+
+const obj = {
+  name: "John",
+  regularFunction: function() {
+    console.log("Regular Function: Hello, " + this.name);
+  },
+  arrowFunction: () => {
+    console.log("Arrow Function: Hello, " + this.name);
+  }
+};
+
+obj.regularFunction(); // Regular Function: Hello, John
+obj.arrowFunction();   // Arrow Function: Hello, undefined In the above example, the regularFunction uses this to access the name property of the obj 
+                          object because it has its own this binding. However, the arrowFunction uses the this from the surrounding context 
+                          (which is the global context), and since there's no name property defined in the global context, it logs undefined.
 
 
+
+
+Call() , appy() , bind() 
+
+let name = {
+  firstName: 'Abhay',
+  lastName : 'Modi',
+  printName : function (){
+   console.log(this.firstName + " "+this.lastName);
+ }
+}
+const printFullName  =  function (hometown,town){
+   console.log(this.firstName + " " + this.lastName+ "from : " + hometown + " in:" + town);
+ }
+
+name.printName();
+let name2 = {
+  firstName: 'Maau',
+  lastName : 'Meri',
+}
+
+//function Borrowing 
+name.printName.call(name2);
+
+//simple Call()
+printFullName.call(name,"Delhi","India"); //first arg will refer to `this` keyword and rest as normal arg to the function
+
+//apply()
+printFullName.call(name,["Delhi","India"]); //first arg will refer to `this` keyword and rest as normal arg to the function
+
+//bind()
+let printMyName = printFullName.bind(name,"Delhi","India"); //return a copy of function
+console.log(printMyName) //print the whole function body
+printMyName() //normal function invoke will orint : <Abhay modi from Delhi in India>
+
+
+
+//polyfill for bind
+let name = {
+  firstName: 'Abhay',
+  lastName : 'Modi',
+}
+const printName  =  function (){
+   console.log(this.firstName + " " + this.lastName);
+ }
+let printMyName = printName.bind(name);
+printMyName();
+
+//creating a polyfill for bind say (myBind())
+
+Function.prototype.myBind = function (...args) {
+//args will be an array now
+let obj =this;
+params = args.slice(1);
+   return function(...args2){
+    this.apply(args[0],[...params,...args2]);
+  }
+} 
+
+let printMyName02 = printName.myBind(name);
+printMyName02;
+
+///////Promises 
+
+const API = "https://api/github.com/users/the-imperor
+const promise = fetch(API) // if console this promise, it is a promise object
+promise.then((data)=>{console.log(data)});
+
+
+Promises have 3 things inside it 
+1. [[Prototype]] : Promise.
+2. [[PromiseState]] : possible values are "pending" , "fulfilled", "rejected" .
+3. [[PromiseResult]] : store the data (intially intialised with `undefined`).
+
+
+async() function :
+always return a promise , either you manually sent it out or else JS by itself wrap it in the promise object.
+
+async and await is used to handle promises.
+await can only be used inside ur async function
